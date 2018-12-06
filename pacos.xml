@@ -14,7 +14,7 @@
 			<OnEvent> print("Was ist passiert?" .. event); </OnEvent>
 		</Scripts>
 	</Frame>
-	
+  <Script File="HelloWorld.lua"/>
 	<Frame name="WorldOfWarcraftAddOnIntermediate" parent="UIParent" hidden="true" enableMouse="true" movable="true">
 		<Size x="234" y="300"/>
 		<Anchors>
@@ -40,6 +40,9 @@
 				<Anchors>
 					<Anchor point="CENTER"/>
 				</Anchors>
+        <Script>
+          <OnLoad> print("Hello, World!"); </OnLoad>
+        </Script>
 				<Layers>
 					<Layer level="BACKGROUND">
 					  <Texture setAllPoints="true">
