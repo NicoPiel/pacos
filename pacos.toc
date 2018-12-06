@@ -1,0 +1,6 @@
+## Interface: 80000
+## Title : pacos
+## Notes: This AddOn does nothing but display a frame with a button
+## Author: Pascal Staadt, Nico Piel, Patrick Jude
+pacos.xml
+pacos.lua
