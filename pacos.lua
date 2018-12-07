@@ -72,6 +72,7 @@ end
 -- All properties for creating a button
 function pacos_CreateButton(_name, _frame, _ofsx, _ofsy)
     local button = CreateFrame("Button", nil, _frame);
+	local buttonColor = "green";
     button:SetPoint("TOPLEFT", _frame, "TOPLEFT", _ofsx, _ofsy);
     button:SetSize(64, 32);
 
@@ -97,7 +98,14 @@ function pacos_CreateButton(_name, _frame, _ofsx, _ofsy)
 
     button:RegisterForClicks("LeftButtonUp");
     button:SetScript("OnClick", function(self)
-        pacos_ChangeButtonColor(self);
+		if(buttonColor=="green") then
+			pacos_ChangeButtonColor(self, "red");
+			buttonColor="red";
+		elseif(buttonColor=="red")then
+			pacos_ChangeButtonColor(self, "green");
+			buttonColor="green";
+		end
+			
     end)
 
     return button;
@@ -113,10 +121,14 @@ function pacos_PlayerIsTank()
 end
 
 -- Test function to change a button's colour
-function pacos_ChangeButtonColor(_button)
+function pacos_ChangeButtonColor(_button, color)
     local button = _button;
     local ntex = button:CreateTexture();
-    ntex:SetColorTexture(0.9, 0, 0, 0.9);
+	if (color=="red") then
+		ntex:SetColorTexture(0.9, 0, 0, 0.9);
+	elseif(color=="green") then
+		ntex:SetColorTexture(0, 0.5, 0, 0.7);
+	end
     ntex:SetAllPoints();
     button:SetNormalTexture(ntex);
 end
